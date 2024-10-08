@@ -1,0 +1,50 @@
+<div class="header">
+  <div class="search-hero">
+    <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange()"
+      placeholder="Search patients..." />
+  </div>
+  <div class="add-patient">
+    <a class="add" routerLink="/add-patient">Add New Patient</a>
+  </div>
+</div>
+
+
+<div class="sub-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>GENDER</th>
+        <th>CONTACT</th>
+        <th>EMAIL</th>
+        <th>HOSPITAL</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{ patient.id }}</td>
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.age }}</td>
+        <td>{{ patient.gender }}</td>
+        <td>{{ patient.contact }}</td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.hospital }}</td>
+        <td>
+          <a [routerLink]="['/edit-patient', patient.id]" class="edit-link">
+            <i class="bi bi-pencil"></i>
+          </a> |
+          <a [routerLink]="['/patient', patient.id, 'details']">
+            <i class="bi bi-pencil-square"></i>
+          </a> |
+          <a href="#" (click)="DeleteSelectedPatient(patient, $event)">
+            <i class="bi bi-trash"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="currentPage = $event" class="pagination"></pagination-controls>
+</div>

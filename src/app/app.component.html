@@ -1,0 +1,23 @@
+
+<div class="header">
+  <h1 class="dashboard-title">Dashboard</h1>
+  <div class="notification">
+      <h1 class="main-heading">Hello, {{ title }}</h1>
+  </div>
+</div>
+
+<div class="main-container">
+  <aside class="sidebar">
+      <ul class="menu">
+          <li class="menu-item">
+              <a routerLink="patient">Patient</a>
+          </li>
+          <li class="menu-item">
+              <a routerLink="add-patient">Add Patient</a>    
+          </li>
+      </ul>
+  </aside>
+  <main class="content">
+      <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,54 @@
+<form [formGroup]="editPatientForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" />
+        <div *ngIf="editPatientForm.get('name')?.invalid && editPatientForm.get('name')?.touched">
+            Name is required and must be at least 2 characters long.
+        </div>
+    </div>
+
+    <div>
+        <label for="age">Age</label>
+        <input id="age" type="number" formControlName="age" />
+        <div *ngIf="editPatientForm.get('age')?.invalid && editPatientForm.get('age')?.touched">
+            Age is required and must be a positive number.
+        </div>
+    </div>
+
+    <div>
+        <label for="gender">Gender</label>
+        <select id="gender" formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <div *ngIf="editPatientForm.get('gender')?.invalid && editPatientForm.get('gender')?.touched">
+            Gender is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="contact">Contact</label>
+        <input id="contact" type="text" formControlName="contact" />
+        <div *ngIf="editPatientForm.get('contact')?.invalid && editPatientForm.get('contact')?.touched">
+            Contact is required and must be a 10-digit number.
+        </div>
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" />
+        <div *ngIf="editPatientForm.get('email')?.invalid && editPatientForm.get('email')?.touched">
+            A valid email is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="hospital">Hospital</label>
+        <input id="hospital" type="text" formControlName="hospital" />
+        <div *ngIf="editPatientForm.get('hospital')?.invalid && editPatientForm.get('hospital')?.touched">
+            Hospital is required.
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="editPatientForm.invalid">Update Patient</button>
+</form>

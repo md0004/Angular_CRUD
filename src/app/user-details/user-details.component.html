@@ -1,0 +1,36 @@
+<h2>Patient Details</h2>
+<hr>
+<div *ngIf="patient">
+  <p>
+    <strong>ID:</strong> 
+    <span>{{ patient.id }}</span>
+  </p>
+  <p>
+    <strong>Name:</strong> 
+    <span>{{ patient.name }}</span>
+  </p>
+  <p>
+    <strong>Age:</strong> 
+    <span>{{ patient.age }}</span>
+  </p>
+  <p>
+    <strong>Gender:</strong> 
+    <span>{{ patient.gender }}</span>
+  </p>
+  <p>
+    <strong>Contact:</strong> 
+    <span>{{ patient.contact }}</span>
+  </p>
+  <p>
+    <strong>Email:</strong> 
+    <span>{{ patient.email }}</span>
+  </p>
+  <p>
+    <strong>Hospital:</strong> 
+    <span>{{ patient.hospital }}</span>
+  </p>
+</div>
+
+<div *ngIf="!patient">
+  <p>Loading patient details...</p>
+</div>
