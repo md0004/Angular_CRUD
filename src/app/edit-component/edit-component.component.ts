@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IPatient } from '../Models/Patient';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PatientCRUDService } from '../Services/patient-crud.service';
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './edit-component.component.html',
   styleUrl: './edit-component.component.css'
 })
-export class EditPatientComponent {
+export class EditPatientComponent implements OnInit{
   editPatientForm!: FormGroup; // FormGroup for handling the form
   patientId!: number; // To store patient ID from the route
 

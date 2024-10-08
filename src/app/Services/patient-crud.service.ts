@@ -11,7 +11,7 @@ export class PatientCRUDService {
   private url = "http://localhost:3000/posts";
 
   constructor(private http: HttpClient) {}
-
+  // Fetch all patients
   getPatients(): Observable<IPatient[]> {
     return this.http.get<IPatient[]>(this.url);
   }

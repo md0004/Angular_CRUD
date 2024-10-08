@@ -6,7 +6,7 @@ import { IPatient } from '../Models/Patient';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css'] // Correct to styleUrls
+  styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
 
@@ -18,10 +18,8 @@ export class UserDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Get the patient ID from the route parameters
     const patientId = +this.route.snapshot.paramMap.get('id')!;
     
-    // Fetch the patient details from the service
     this._services.getPatientById(patientId).subscribe((patientDetail: IPatient) => {
       this.patient = patientDetail;
     });
