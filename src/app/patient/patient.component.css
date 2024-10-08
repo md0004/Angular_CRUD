@@ -1,19 +1,15 @@
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.add {
-  color: whitesmoke;
-  text-decoration: none;
-  height: 100px;
-  cursor: pointer;
-}
-
-
 .search-hero {
+  width: 70%;
   margin: 10px auto;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 20px;
 }
 
 .search-hero input {
@@ -21,6 +17,40 @@
   padding: 5px 20px;
   border-radius: 8px;
   border-style: none;
+}
+
+.search-hero button {
+  height: 2.5rem;
+  padding: 5px 20px;
+  border-radius: 8px;
+  border-style: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-hero button:hover {
+  transform: scale(1.05);
+  background-color: rgb(230, 230, 230);
+}
+
+.add-patient {
+  background: #0056ff;
+  height: 2.5rem;
+  width: 10rem;
+  text-align: center;
+  align-content: center;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add {
+  color: whitesmoke;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-patient:hover {
+  transform: scale(1.05);
+  background-color: #0046d1;
 }
 
 .sub-container {
@@ -63,39 +93,55 @@ tbody tr:hover {
 
 .pagination {
   display: flex;
-  justify-content: center; /* Center the pagination */
-  margin: 20px 0;         /* Add margin for spacing */
+  justify-content: center;
+  /* Center the pagination */
+  margin: 20px 0;
+  /* Add margin for spacing */
 }
 
 .pagination .pagination-controls {
-  list-style: none; /* Remove bullet points */
+  list-style: none;
+  /* Remove bullet points */
   padding: 0;
   display: flex;
 }
 
 .pagination .pagination-controls li {
-  margin: 0 5px; /* Spacing between pagination items */
+  margin: 0 5px;
+  /* Spacing between pagination items */
 }
 
 .pagination .pagination-controls a {
-  text-decoration: none; /* Remove underline from links */
-  padding: 8px 12px; /* Add padding */
-  border: 1px solid #1f1f1f; /* Border color */
-  border-radius: 4px; /* Rounded corners */
-  color: #1f1f1f; /* Text color */
-  background-color: whitesmoke; /* Background color */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  text-decoration: none;
+  /* Remove underline from links */
+  padding: 8px 12px;
+  /* Add padding */
+  border: 1px solid #1f1f1f;
+  /* Border color */
+  border-radius: 4px;
+  /* Rounded corners */
+  color: #1f1f1f;
+  /* Text color */
+  background-color: whitesmoke;
+  /* Background color */
+  transition: background-color 0.3s;
+  /* Smooth transition for hover effect */
 }
 
 .pagination .pagination-controls a:hover {
-  background-color: #1f1f1f; /* Dark background on hover */
-  color: whitesmoke; /* Change text color on hover */
+  background-color: #1f1f1f;
+  /* Dark background on hover */
+  color: whitesmoke;
+  /* Change text color on hover */
 }
 
 .pagination .pagination-controls .active a {
-  background-color: #1f1f1f; /* Active page background */
-  color: whitesmoke; /* Active page text color */
-  border: 1px solid #1f1f1f; /* Match border with active background */
+  background-color: #1f1f1f;
+  /* Active page background */
+  color: whitesmoke;
+  /* Active page text color */
+  border: 1px solid #1f1f1f;
+  /* Match border with active background */
 }
 
 @media (max-width: 768px) {

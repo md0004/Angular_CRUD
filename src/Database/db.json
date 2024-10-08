@@ -1,33 +1,6 @@
 {
   "posts": [
     {
-      "id": "1727765949410",
-      "name": "Abid",
-      "age": 22,
-      "gender": "Male",
-      "contact": "1112222333",
-      "email": "abid@gmail.com",
-      "hospital": "Cardiology"
-    },
-    {
-      "id": "1727935539151",
-      "name": "Shahroz",
-      "age": 23,
-      "gender": "Male",
-      "contact": "3321432123",
-      "email": "shahrozali@gmail.com",
-      "hospital": "Cardiology"
-    },
-    {
-      "id": "1728100011001",
-      "name": "Ahmed Khan",
-      "age": 35,
-      "gender": "Male",
-      "contact": "3001234567",
-      "email": "ahmedkhan1@gmail.com",
-      "hospital": "National Hospital"
-    },
-    {
       "id": "1728100011002",
       "name": "Sarah Ali",
       "age": 30,

@@ -32,7 +32,7 @@ export class AddPatientComponent implements OnInit {
   onSubmit(): void {
     if (this.addPatientForm.valid) {
       const newPatient: IPatient = {
-        id: Date.now(), // Temporary ID generation (should be handled by the backend in real apps)
+        id: Date.now().toString(), // Temporary ID generation (should be handled by the backend in real apps)
         ...this.addPatientForm.value
       };
 

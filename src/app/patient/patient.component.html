@@ -1,7 +1,7 @@
 <div class="header">
   <div class="search-hero">
-    <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange()"
-      placeholder="Search patients..." />
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search patients..." />
+    <button (click)="searchPatients()">Search</button>
   </div>
   <div class="add-patient">
     <a class="add" routerLink="/add-patient">Add New Patient</a>
@@ -24,7 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let patient of patients">
+      <tr *ngFor="let patient of filteredPatients | paginate: { itemsPerPage: patientsPerPage, currentPage: currentPage }">
         <td>{{ patient.id }}</td>
         <td>{{ patient.name }}</td>
         <td>{{ patient.age }}</td>
@@ -45,6 +45,9 @@
         </td>
       </tr>
     </tbody>
+
   </table>
-  <pagination-controls (pageChange)="currentPage = $event" class="pagination"></pagination-controls>
+  <div class="pagination">
+    <pagination-controls class="pagination-controls" (pageChange)="currentPage = $event"></pagination-controls>
+  </div>
 </div>

@@ -8,12 +8,13 @@ import { IPatient } from '../Models/Patient';
   styleUrls: ['./patient.component.css']
 })
 export class PatientComponent implements OnInit {
-  selectedPatient: IPatient | null = null;
   patients: IPatient[] = [];
+  
   filteredPatients: IPatient[] = [];
   searchQuery: string = '';
+
   currentPage: number = 1;
-  itemsPerPage: number = 5;
+  patientsPerPage: number = 5;
 
   constructor(private _services: PatientCRUDService) { }
 
@@ -25,7 +26,7 @@ export class PatientComponent implements OnInit {
     this._services.getPatients().subscribe(
       (data: IPatient[]) => {
         this.patients = data;
-        this.updateFilteredPatients();
+        this.filteredPatients = data;
       },
       (error) => {
         console.error('Error fetching patients:', error);
@@ -33,38 +34,28 @@ export class PatientComponent implements OnInit {
     );
   }
 
-  updateFilteredPatients() {
-    if (!Array.isArray(this.patients)) {
-      console.error('Patients data is not an array:', this.patients);
-      return;
+  searchPatients() {
+    if (this.searchQuery) {
+      this.filteredPatients = this.patients.filter(patient =>
+        patient.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    } else {
+      this.filteredPatients = this.patients;
     }
-
-    this.filteredPatients = this.patients.filter(patient =>
-      patient.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
-    this.currentPage = 1;
-  }
-
-  onSearchQueryChange() {
-    this.updateFilteredPatients();
   }
 
   DeleteSelectedPatient(patient: IPatient, event: Event): void {
     event.preventDefault();
 
-    this._services.deletePatient(patient.id).subscribe(
+    this._services.deletePatient(Number(patient.id)).subscribe(
       () => {
         this.patients = this.patients.filter(p => p.id !== patient.id);
-        this.updateFilteredPatients();
       },
       (error) => {
         console.error('Error deleting patient:', error);
+        alert('Failed to delete patient. Please try again.');
       }
     );
-  }
-
-  SelectPatientForEdit(patient: IPatient, event: Event): void {
-    event.preventDefault();
-    this.selectedPatient = { ...patient };
+    
   }
 }
